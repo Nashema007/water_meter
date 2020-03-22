@@ -2,12 +2,14 @@ package zw.nash.recieptsapp.api;
 
 import io.reactivex.Flowable;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
+import retrofit2.http.Query;
 import zw.nash.recieptsapp.model.User;
 
 public interface AuthApi {
 
-    @GET("users/{id}")
-    Flowable<User> getUser(@Path("id") int id);
+    @GET("user")
+    Flowable<User> getUser(
+            @Query("username") String username,
+            @Query("password") String password);
 
 }

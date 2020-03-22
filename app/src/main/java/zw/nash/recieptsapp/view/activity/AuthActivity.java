@@ -60,7 +60,7 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
                     case ERROR:
                         showProgressBar(false);
                         Toast.makeText(AuthActivity.this,
-                                userAuthResource.message+"\nDid you enter a number between 1 and 10",
+                                userAuthResource.message+"\nDid you enter the correct username or password",
                                 Toast.LENGTH_LONG).show();
                         break;
                     case NOT_AUTHENTICATED:
@@ -99,9 +99,9 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
     }
 
     private void attemptLogin() {
-        if(TextUtils.isEmpty(username.getText().toString().trim())){
+        if(TextUtils.isEmpty(username.getText().toString().trim()) && TextUtils.isEmpty(password.getText().toString().trim())){
             return;
         }
-        authViewModel.authWithId(Integer.parseInt(username.getText().toString().trim()));
+        authViewModel.authWithId(username.getText().toString().trim(), password.getText().toString().trim());
     }
 }
