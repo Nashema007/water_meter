@@ -7,7 +7,7 @@ import zw.nash.recieptsapp.model.User;
 
 public interface AuthApi {
 
-    @GET("user")
+    @GET("login")
     Flowable<User> getUser(
             @Query("username") String username,
             @Query("password") String password);
