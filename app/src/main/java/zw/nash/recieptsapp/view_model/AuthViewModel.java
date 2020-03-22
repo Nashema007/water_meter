@@ -29,16 +29,16 @@ public class AuthViewModel extends ViewModel {
 
     }
 
-    public void authWithId(int id){
+    public void authWithId(String username, String password){
         Log.d(TAG, "authWithId: attempting to login");
-        sessionManager.authWithId(queryUserId(id));
+        sessionManager.authWithId(queryUser(username, password));
 
     }
 
-    private LiveData<AuthResource<User>> queryUserId(int id){
+    private LiveData<AuthResource<User>> queryUser(String username, String password){
         return   LiveDataReactiveStreams.fromPublisher(
 
-                authApi.getUser(id)
+                authApi.getUser(username, password)
                         // instead of calling onError(error happens)
                         .onErrorReturn(throwable -> {
                             User errorUser = new User();
