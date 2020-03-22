@@ -4,7 +4,7 @@ const router = express.Router()
 
 router.get('/login', async (req, res, next)=>{
     try {
-        let login = await db.login(req.body)
+        let login = await db.login(req.query)
         res.json(login)
         console.log(login)
       } catch (error) {
