@@ -11,12 +11,13 @@ import androidx.annotation.Nullable;
 import dagger.android.support.DaggerFragment;
 import zw.nash.recieptsapp.R;
 
-public class ProfileFragment extends DaggerFragment {
+public class DashboardFragment extends DaggerFragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
+
 
         return view;
     }
