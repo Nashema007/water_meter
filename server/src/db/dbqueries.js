@@ -12,7 +12,11 @@ watermeterdb.login = (user)=>{
               if (Object.keys(results).length === 0) {
                 return resolve({ 'login': 'failed' })
               } else {
-                return resolve({ 'login': 'successful' })
+                return resolve({
+                  'id':results[0].id,
+                  'username':results[0].username,
+                  'email':results[0].email
+                })
               }
         })
     })

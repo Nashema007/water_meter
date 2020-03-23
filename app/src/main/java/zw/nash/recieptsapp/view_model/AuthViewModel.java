@@ -25,19 +25,17 @@ public class AuthViewModel extends ViewModel {
 
         this.authApi = authApi;
         this.sessionManager = sessionManager;
-        Log.d(TAG, "AuthViewModel: viewmodel is working....");
-
     }
 
-    public void authWithId(String username, String password){
+    public void authWithId(String userCred) {
         Log.d(TAG, "authWithId: attempting to login");
-        sessionManager.authWithId(queryUser(username, password));
+        sessionManager.authWithId(queryUser(userCred));
 
     }
 
-    private LiveData<AuthResource<User>> queryUser(String username, String password){
+    private LiveData<AuthResource<User>> queryUser(String userCred) {
         return   LiveDataReactiveStreams.fromPublisher(
-                authApi.getUser(username, password)
+                authApi.getUser(userCred)
                         // instead of calling onError(error happens)
                         .onErrorReturn(throwable -> {
                             User errorUser = new User();
@@ -46,9 +44,10 @@ public class AuthViewModel extends ViewModel {
                         })
                         //if !error returns user object else returns error object
                         .map((Function<User, AuthResource<User>>) user -> {
-                            if(user.getId() == -1){
-                                return AuthResource.error("could not Authenticate", null);
+                            if (user.getId() == -1) {
+                                return AuthResource.error("Could not Authenticate", null);
                             }
+
                             return AuthResource.authenticated(user);
                         })
                         .subscribeOn(Schedulers.io())
