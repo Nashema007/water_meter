@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="zw.nash.recieptsapp.view.fragments.DashboardFragment"
+        android:label="DashboardFragment" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_waterBillFragment"
+            app:destination="@id/waterBillFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="zw.nash.recieptsapp.view.fragments.ProfileFragment"
+        android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/waterBillFragment"
+        android:name="zw.nash.recieptsapp.view.fragments.WaterBillFragment"
+        android:label="WaterBillFragment" />
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="zw.nash.recieptsapp.view.fragments.PaymentFragment"
+        android:label="PaymentFragment" />
+</navigation>
