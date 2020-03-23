@@ -3,6 +3,7 @@ package zw.nash.recieptsapp.view.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -60,7 +61,7 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
                     case ERROR:
                         showProgressBar(false);
                         Toast.makeText(AuthActivity.this,
-                                userAuthResource.message+"\nDid you enter the correct username or password",
+                                userAuthResource.message + "\n Did you enter the correct username or password",
                                 Toast.LENGTH_LONG).show();
                         break;
                     case NOT_AUTHENTICATED:
@@ -102,6 +103,15 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
         if(TextUtils.isEmpty(username.getText().toString().trim()) && TextUtils.isEmpty(password.getText().toString().trim())){
             return;
         }
-        authViewModel.authWithId(username.getText().toString().trim(), password.getText().toString().trim());
+        authViewModel.authWithId(encodeCredentials(username.getText().toString().trim(), password.getText().toString().trim()));
+    }
+
+    /**
+     * @param username username
+     * @param password password
+     * @return encoded user credentials
+     */
+    private String encodeCredentials(String username, String password) {
+        return "Basic " + Base64.encodeToString((username + ":" + password).getBytes(), Base64.NO_WRAP);
     }
 }
