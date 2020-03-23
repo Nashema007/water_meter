@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "786088703071",
+    "firebase_url": "https://watermeter-5da59.firebaseio.com",
+    "project_id": "watermeter-5da59",
+    "storage_bucket": "watermeter-5da59.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:786088703071:android:2a0d7acc6096563f7757ea",
+        "android_client_info": {
+          "package_name": "zw.nash.recieptsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "786088703071-nv7e9u29ru4dallmcotq93a2edu6eb0a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "zw.nash.recieptsapp",
+            "certificate_hash": "f4fddc702e802909432625a42d6328a7bf4efa0d"
+          }
+        },
+        {
+          "client_id": "786088703071-llaaoiv9lqner8jotre9se1qiu27257e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjTDng_qjjFluJW1A-xlyfoBamgJEKj3s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "786088703071-llaaoiv9lqner8jotre9se1qiu27257e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
