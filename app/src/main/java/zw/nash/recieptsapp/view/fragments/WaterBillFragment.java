@@ -8,10 +8,16 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import javax.inject.Inject;
+
 import dagger.android.support.DaggerFragment;
 import zw.nash.recieptsapp.R;
+import zw.nash.recieptsapp.view_model.ViewModelProviderFactory;
 
 public class WaterBillFragment extends DaggerFragment {
+
+    @Inject
+    ViewModelProviderFactory viewModelProviderFactory;
 
     @Nullable
     @Override

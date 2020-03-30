@@ -18,14 +18,17 @@
             android:id="@+id/action_dashboardFragment_to_paymentFragment"
             app:destination="@id/paymentFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/profileFragment"
         android:name="zw.nash.recieptsapp.view.fragments.ProfileFragment"
         android:label="ProfileFragment" />
+
     <fragment
         android:id="@+id/waterBillFragment"
         android:name="zw.nash.recieptsapp.view.fragments.WaterBillFragment"
         android:label="WaterBillFragment" />
+
     <fragment
         android:id="@+id/paymentFragment"
         android:name="zw.nash.recieptsapp.view.fragments.PaymentFragment"
