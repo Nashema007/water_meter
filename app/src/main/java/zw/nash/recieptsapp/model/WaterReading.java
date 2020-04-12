@@ -7,12 +7,10 @@ public class WaterReading {
     private double waterReadingValue;
     private double waterRate;
     private String accountNumber;
-    private Account account;
-
     private String date;
 
     public WaterReading() {
-        setAccountNumber(account.getAccountNumber());
+
     }
 
     public int getId() {

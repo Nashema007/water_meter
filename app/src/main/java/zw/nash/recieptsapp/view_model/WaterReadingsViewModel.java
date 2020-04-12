@@ -1,4 +1,6 @@
 package zw.nash.recieptsapp.view_model;
 
-public class WaterReadingsViewModel {
+import androidx.lifecycle.ViewModel;
+
+public class WaterReadingsViewModel extends ViewModel {
 }

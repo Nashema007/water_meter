@@ -9,6 +9,7 @@ import dagger.Component;
 import dagger.android.AndroidInjectionModule;
 import dagger.android.AndroidInjector;
 import zw.nash.recieptsapp.util.BaseApplication;
+import zw.nash.recieptsapp.util.SessionManager;
 
 @Singleton
 @Component(modules = {AndroidInjectionModule.class,
@@ -17,7 +18,7 @@ import zw.nash.recieptsapp.util.BaseApplication;
         ViewModelFactoryModule.class,})
 public interface AppComponent extends AndroidInjector<BaseApplication> {
 
-   //SessionManager sessionManager();
+    SessionManager sessionManager();
 
     @Component.Builder
     interface Builder{

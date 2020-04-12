@@ -20,7 +20,7 @@ public class Account {
     @Expose
     private String dueDate;
 
-    @SerializedName(" taxInvoiceNumber")
+    @SerializedName("taxInvoiceNumber")
     @Expose
     private String taxInvoiceNumber;
 
@@ -78,5 +78,17 @@ public class Account {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "accountNumber='" + accountNumber + '\'' +
+                ", previousBalance=" + previousBalance +
+                ", currentBalance=" + currentBalance +
+                ", dueDate='" + dueDate + '\'' +
+                ", taxInvoiceNumber='" + taxInvoiceNumber + '\'' +
+                ", username='" + username + '\'' +
+                '}';
     }
 }

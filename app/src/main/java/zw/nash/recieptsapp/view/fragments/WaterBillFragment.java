@@ -34,6 +34,7 @@ public class WaterBillFragment extends DaggerFragment {
         View view = inflater.inflate(R.layout.fragment_water_bill, container, false);
 
         waterBillViewModel = new ViewModelProvider(getActivity(), viewModelProviderFactory).get(WaterBillViewModel.class);
+        subscribeObserver();
 
 
         return view;
@@ -63,6 +64,8 @@ public class WaterBillFragment extends DaggerFragment {
     }
 
     private void setDisplay(Account data){
+
+        Log.d(TAG, "setDisplay: " + data.toString());
 
     }
 }

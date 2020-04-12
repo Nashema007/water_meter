@@ -1,9 +1,10 @@
 package zw.nash.recieptsapp.view_model;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.LiveDataReactiveStreams;
 import androidx.lifecycle.MediatorLiveData;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 
 import javax.inject.Inject;
@@ -20,6 +21,7 @@ public class WaterBillViewModel extends ViewModel {
     private SessionManager sessionManager;
     private AccountApi accountApi;
     private MediatorLiveData<Resource<Account>> waterBill;
+    private static final String TAG = "WaterBillViewModel";
 
     @Inject
     public WaterBillViewModel(SessionManager sessionManager, AccountApi accountApi) {
@@ -35,23 +37,22 @@ public class WaterBillViewModel extends ViewModel {
             final LiveData<Resource<Account>> source =
                     LiveDataReactiveStreams.fromPublisher(
                             accountApi.getAccount(
-                                    sessionManager.getAuthUser().getValue().data.getUsername())
+                                    "nashema")//sessionManager.getAuthUser().getValue().data.getUsername()
                     .onErrorReturn(throwable -> {
                         Account accountError = new Account();
                         accountError.setAccountNumber("");
                         return accountError;
                     }).map((Function<Account, Resource<Account>>) account -> {
-                        if(account.getAccountNumber().equals("")){
+                                if (account == null) {
                             return Resource.error("Something went wrong..", null);
                         }
                         return Resource.success(account);
                     }).subscribeOn(Schedulers.io()));
-            waterBill.addSource(source, new Observer<Resource<Account>>() {
-                @Override
-                public void onChanged(Resource<Account> accountResource) {
-                    waterBill.setValue(accountResource);
-                    waterBill.removeSource(source);
-                }
+
+            waterBill.addSource(source, accountResource -> {
+                Log.d(TAG, "observeAccount: " + accountResource.data.toString());
+                waterBill.setValue(accountResource);
+                waterBill.removeSource(source);
             });
 
 
