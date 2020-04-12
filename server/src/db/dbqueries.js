@@ -70,6 +70,22 @@ watermeterdb.getProfile = (user)=>{
   })
 }
 
+watermeterdb.getWaterReadings = (user)=>{
+  return new Promise((resolve, reject)=>{
+    pool.query('Select * FROM waterReadings where accountNumber=?', 
+    user['accountNumber'],(err, results)=>{
+      if(err){
+        return reject(err)
+      }
+      if (Object.keys(results).length === 0) {
+        return resolve({ 'account': 'does not exist' })
+      } else {
+        return resolve(results)
+      }
+    } )
+  })
+}
+
 
 
 module.exports = watermeterdb

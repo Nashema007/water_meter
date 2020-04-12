@@ -12,6 +12,12 @@ public interface WaterReadingsApi {
     @GET("water")
     Flowable<List<WaterReading>> getWaterReading(@Query("accountNumber") String accountNumber);
 
+    /**
+     * Filter by date
+     *
+     * @param id
+     * @return
+     */
     @GET("water")
-    Flowable<List<WaterReading>> getWaterReadings(@Query("id") String username);
+    Flowable<List<WaterReading>> getWaterReadings(@Query("id") String id);
 }
