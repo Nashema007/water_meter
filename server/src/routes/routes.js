@@ -23,5 +23,39 @@ router.get('/login', async (req, res, next)=>{
       }
 })
 
+router.get('/account', async (req, res, next)=>{
+try {
+  let accountQuery = await db.getAccount(req.query)
+  if(accountQuery['account'] === 'does not exist'){
+    return res.status(401).json({message:'does not exist'})
+  }
+  else{
+    res.json(accountQuery)
+  }
+} catch (error) {
+  console.log(error)
+        res.sendStatus(500)
+}
+ 
+
+})
+
+router.get('/profile', async (req, res, next)=>{
+  try {
+    let accountQuery = await db.getProfile(req.query)
+    if(accountQuery['profile'] === 'does not exist'){
+      return res.status(401).json({message:'does not exist'})
+    }
+    else{
+      res.json(accountQuery)
+    }
+  } catch (error) {
+    console.log(error)
+          res.sendStatus(500)
+  }
+   
+  
+  })
+
 
 module.exports = router
