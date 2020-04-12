@@ -6,7 +6,7 @@ package zw.nash.recieptsapp.model;
 public class WaterBill {
 
     private int id;
-    private float waterRate;
+
     private WaterReading waterReading;
 
 
@@ -19,14 +19,6 @@ public class WaterBill {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public float getWaterRate() {
-        return waterRate;
-    }
-
-    public void setWaterRate(float waterRate) {
-        this.waterRate = waterRate;
     }
 
     public WaterReading getWaterReading() {
