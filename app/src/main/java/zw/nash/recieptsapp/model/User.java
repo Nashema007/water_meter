@@ -24,6 +24,8 @@ public class User {
     private String password;
 
 
+
+
     @Ignore
     public User(int id, String username, String email, String password) {
         this.id = id;
