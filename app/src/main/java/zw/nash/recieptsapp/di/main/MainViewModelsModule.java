@@ -7,6 +7,8 @@ import dagger.Module;
 import dagger.multibindings.IntoMap;
 import zw.nash.recieptsapp.di.ViewModelKey;
 import zw.nash.recieptsapp.view_model.ProfileViewModel;
+import zw.nash.recieptsapp.view_model.WaterBillViewModel;
+import zw.nash.recieptsapp.view_model.WaterReadingsViewModel;
 
 @Module
 public abstract class MainViewModelsModule {
@@ -16,8 +18,13 @@ public abstract class MainViewModelsModule {
     @ViewModelKey(ProfileViewModel.class)
     public abstract ViewModel bindProfileFragment(ProfileViewModel viewModel);
 
-//    @Binds
-//    @IntoMap
-//    @ViewModelKey(PostsViewModel.class)
-//    public abstract ViewModel bindPostsFragment(PostsViewModel viewModel);
+    @Binds
+    @IntoMap
+    @ViewModelKey(WaterBillViewModel.class)
+    public abstract ViewModel bindPostsFragment(WaterBillViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(WaterReadingsViewModel.class)
+    public abstract ViewModel bindPostsFragment(WaterReadingsViewModel viewModel);
 }

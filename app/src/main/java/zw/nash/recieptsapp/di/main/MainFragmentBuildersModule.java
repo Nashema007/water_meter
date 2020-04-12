@@ -6,6 +6,7 @@ import zw.nash.recieptsapp.view.fragments.DashboardFragment;
 import zw.nash.recieptsapp.view.fragments.PaymentFragment;
 import zw.nash.recieptsapp.view.fragments.ProfileFragment;
 import zw.nash.recieptsapp.view.fragments.WaterBillFragment;
+import zw.nash.recieptsapp.view.fragments.WaterReadingsFragment;
 
 @Module
 public abstract class MainFragmentBuildersModule {
@@ -22,6 +23,6 @@ public abstract class MainFragmentBuildersModule {
  @ContributesAndroidInjector
     abstract WaterBillFragment contributeWaterBillFragment();
 
-//    @ContributesAndroidInjector
-//    abstract PostsFragment contributePostsFragment();
+    @ContributesAndroidInjector
+    abstract WaterReadingsFragment contributeWaterReadingsFragment();
 }

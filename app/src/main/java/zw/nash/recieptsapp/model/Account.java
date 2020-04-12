@@ -20,9 +20,13 @@ public class Account {
     @Expose
     private String dueDate;
 
-    @SerializedName(" taxInvoiceNumber")
+    @SerializedName("taxInvoiceNumber")
     @Expose
     private String taxInvoiceNumber;
+
+    @SerializedName("username")
+    @Expose
+    private String username;
 
     public Account() {
     }
@@ -66,5 +70,25 @@ public class Account {
 
     public void setTaxInvoiceNumber(String taxInvoiceNumber) {
         this.taxInvoiceNumber = taxInvoiceNumber;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "accountNumber='" + accountNumber + '\'' +
+                ", previousBalance=" + previousBalance +
+                ", currentBalance=" + currentBalance +
+                ", dueDate='" + dueDate + '\'' +
+                ", taxInvoiceNumber='" + taxInvoiceNumber + '\'' +
+                ", username='" + username + '\'' +
+                '}';
     }
 }

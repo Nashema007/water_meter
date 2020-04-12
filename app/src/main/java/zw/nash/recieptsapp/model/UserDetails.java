@@ -1,25 +1,36 @@
 package zw.nash.recieptsapp.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class UserDetails {
 
+    @SerializedName("accountNumber")
+    @Expose
     private String accountNumber;
+    @SerializedName("username")
+    @Expose
     private String username;
+    @SerializedName("name")
+    @Expose
     private String name;
+    @SerializedName("address")
+    @Expose
     private String address;
+    @SerializedName("nationalId")
+    @Expose
     private String nationalId;
-    private Account account;
-    private User user;
+
 
     public UserDetails() {
-        setAccountNumber(account.getAccountNumber());
-        setUsername(user.getUsername());
+
     }
 
     public String getUsername() {
         return username;
     }
 
-    private void setUsername(String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
@@ -27,7 +38,7 @@ public class UserDetails {
         return accountNumber;
     }
 
-    private void setAccountNumber(String accountNumber) {
+    public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
 
