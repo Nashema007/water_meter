@@ -24,6 +24,10 @@ public class Account {
     @Expose
     private String taxInvoiceNumber;
 
+    @SerializedName("username")
+    @Expose
+    private String username;
+
     public Account() {
     }
 
@@ -66,5 +70,13 @@ public class Account {
 
     public void setTaxInvoiceNumber(String taxInvoiceNumber) {
         this.taxInvoiceNumber = taxInvoiceNumber;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
